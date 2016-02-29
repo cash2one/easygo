@@ -2,9 +2,11 @@ media/*
 static/*
 tmp/*
 var/*
+*/migrations/*
 authorized_keys
 *.pyc
 *.bak
 *.sqlite3
 *.log
 *.rdb
+*.swo
