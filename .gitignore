@@ -1,0 +1,10 @@
+media/*
+static/*
+tmp/*
+var/*
+authorized_keys
+*.pyc
+*.bak
+*.sqlite3
+*.log
+*.rdb

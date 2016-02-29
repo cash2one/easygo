@@ -1,0 +1,78 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>niwho</title>
+
+<!-- Bootstrap -->
+<link href="{% static 'niwho/css/bootstrap.min.css' %}" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="alert alert-success pull-left" role="alert"><strong>Warning!</strong> Better check yourself, you're not looking too good.</div>
+<div class="alert alert-danger pull-left" role="alert"><strong>Warning!</strong> Better check yourself, you're not looking too good.</div>
+<h1 class="text-center">hello, niwho</h1>
+<!--<x id='cbb'></x>-->
+<div id='test'  class="container">
+    <div>aa</div>
+    <div >
+        <table class='table'>
+            <thead>
+                <th>名称</th>
+                <th>价格</th>
+                <th>其它</th>
+            </thead>
+            <tbody id='test1'>
+            <template v-for='a in ds'>
+                <tr>
+                    <td> {%templatetag openvariable%}a.name{%templatetag closevariable%}</td>
+                    <td>{%templatetag openvariable%}a.price{%templatetag closevariable%}</td>
+                    <td>
+                            <template v-for='cc in a.ot'>
+                            <span>{%templatetag openvariable%}cc{%templatetag closevariable%}</span>
+                            </template>
+                    </td>
+                </tr>
+             </template>
+            </tbody>
+        </table>
+        <ul v-for='a in ds'>
+            <li> {%templatetag openvariable%}a.name{%templatetag closevariable%}</li>
+            <li> {%templatetag openvariable%}a.price{%templatetag closevariable%}</li>
+            <ul v-for='cc in a.ot'>
+                <li>{%templatetag openvariable%}cc{%templatetag closevariable%}</li>
+            </ul>
+        </ul>
+    </div>
+
+    <div>bb<div>
+            <select v-model="selected" id='mysel' v-on:change='ch'>
+                <option value='1'>A</option>
+                <option value='2'>B</option>
+                <option value='3'>C</option>
+            </select>
+            <span>Selected: {%templatetag openvariable%} selected {%templatetag closevariable%}</span>
+    <div><button class='btn default-btn' v-on:click='mb(selected)'>切换</button></div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{% static 'niwho/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'pub/js/vue.min.js' %}"></script>
+<script src="{% static 'pub/js/TweenLite.min.js' %}"></script>
+<script src="{% static 'pub/js/EasePack.min.js' %}"></script>
+<script src="{% static 'pub/js/effects-lines.js' %}"></script>
+<script src="{% static 'niwho/js/an.js' %}"></script>
+</body>
+</html>
